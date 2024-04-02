@@ -1,9 +1,12 @@
 package FormattingChat.ClientSide;
 
 import FormattingChat.ClientSide.Utill.ViewControllerFactory;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class ChatViewController
 {
@@ -21,24 +24,48 @@ public class ChatViewController
     this.viewControllerFactory = viewControllerFactory;
   }
 
-  @FXML public void onNormalChatButtonPressed()
+  public void initialize()
+  {
+    chatViewModel.messageProperty()
+        .addListener((obs, oldMessage, newMessage) -> {
+          onMessageRecieved(newMessage);
+        });
+  }
+
+  public void onMessageRecieved(String message)
+  {
+    Platform.runLater(() -> {
+      textArea.appendText(message + "\n");
+    });
+  }
+
+  public void onNameFieldButtonPressed() throws IOException
+  {
+    String clientName = nameField.getText();
+    chatViewModel.connect("localhost", 2910, clientName);
+    nameField.clear();
+  }
+
+  public void onMessageSendButtonPressed()
+  {
+    String message = messageInputTextField.getText();
+    chatViewModel.sendMessage(chatViewModel.getCurrentClient(), message);
+    messageInputTextField.clear();
+  }
+
+  public void onNormalChatButtonPressed()
   {
     chatViewModel.messageToBold();
   }
 
-  @FXML public void onBoldChatButtonPressed()
+  public void onBoldChatButtonPressed()
   {
     chatViewModel.messageToNormal();
   }
 
-  @FXML public void onItalicButtonPressed()
+  public void onItalicButtonPressed()
   {
     chatViewModel.messageToItalic();
-  }
-
-  @FXML public void onMessageSendButtonPressed()
-  {
-
   }
 
 }

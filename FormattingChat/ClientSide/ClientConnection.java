@@ -23,7 +23,7 @@ public class ClientConnection implements Runnable {
     try {
       while (true) {
         Message message = (Message) inFromServer.readObject();
-        System.out.println(message.getName() + ": " + message.getContent());
+        System.out.println(message.getName() + ": " + message.getMessage());
       }
     }
     catch (IOException | ClassNotFoundException e)

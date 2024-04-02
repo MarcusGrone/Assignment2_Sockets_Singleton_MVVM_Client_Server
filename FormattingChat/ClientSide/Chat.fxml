@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Exercise09_04.ClientController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FormattingChat.ClientSide.ChatViewController">
    <children>
       <HBox prefHeight="43.0" prefWidth="600.0">
          <children>
@@ -30,7 +30,7 @@
       </HBox>
       <VBox prefHeight="262.0" prefWidth="603.0">
          <children>
-            <TextArea fx:id="textArea" prefHeight="310.0" prefWidth="603.0" />
+            <TextArea fx:id="textArea" editable="false" prefHeight="310.0" prefWidth="603.0" />
          </children>
       </VBox>
       <HBox prefHeight="35.0" prefWidth="600.0">

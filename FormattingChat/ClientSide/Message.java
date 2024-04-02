@@ -7,15 +7,15 @@ import java.io.Serializable;
 public class Message implements Serializable
 {
   private String name;
-  private String content;
+  private String message;
 
   private ChatStrategy chatStrategy;
 
 
-  public Message(String name, String content)
+  public Message(String name, String message)
   {
     this.name = name;
-    this.content = content;
+    this.message = message;
   }
 
   public ChatStrategy getChatStrategy()
@@ -33,8 +33,8 @@ public class Message implements Serializable
     return name;
   }
 
-  public String getContent()
+  public String getMessage()
   {
-    return content;
+    return message;
   }
 }

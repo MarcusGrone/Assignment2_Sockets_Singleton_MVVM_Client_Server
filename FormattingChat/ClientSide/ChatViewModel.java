@@ -1,38 +1,79 @@
 package FormattingChat.ClientSide;
 
+import FormattingChat.ClientSide.Utill.Session;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.beans.PropertyChangeEvent;
+import java.io.IOException;
 
 public class ChatViewModel
 {
-private Model clientModel;
+  private Model model;
+  private final BooleanProperty isConnected = new SimpleBooleanProperty(false);
+  private final Session session = Session.getInstance();
+  private StringProperty message = new SimpleStringProperty();
 
-  public ChatViewModel(Model clientModel)
+  public ChatViewModel(Model model)
   {
-    clientModel.addListener("StrategyChange", this::Update);
+    this.model = model;
+    //model.addPropertyChangeListener("StrategyChange", this::Update);
+    model.addPropertyChangeListener("message", event -> {
+      Message message = (Message) event.getNewValue();
+      messageProperty().set(message.getName() + ": " + message.getMessage());
+    });
+  }
+
+  public StringProperty messageProperty()
+  {
+    return message;
+  }
+
+  public void sendMessage(String name, String message)
+  {
+    try
+    {
+      System.out.println("From ViewModel: message recieved.");
+      model.sendMessage(name, message);
+    }
+    catch (IOException e)
+    {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public String getCurrentClient()
+  {
+    return session.getCurrentClient();
+  }
+
+  public void connect(String host, int port, String clientName)
+      throws IOException
+  {
+    model.connectToServer(host, port, clientName);
+    session.setCurrentClient(clientName);
   }
 
   public void messageToNormal()
   {
-clientModel.strategyNormal();
+    model.strategyNormal();
   }
 
   public void messageToItalic()
   {
-clientModel.strategyItalic();
+    model.strategyItalic();
   }
 
   public void messageToBold()
   {
-clientModel.strategyBold();
+    model.strategyBold();
   }
-
 
   private void Update(PropertyChangeEvent propertyChangeEvent)
   {
 
-
   }
-
-
 
 }

@@ -12,7 +12,7 @@ public class ViewControllerFactory
   private ViewModelFactory viewModelFactory;
   private ChatViewController chatViewController;
 
-  private final Stage chatStage;
+  private Stage stage;
 
   private FXMLLoader fxmlLoader;
 
@@ -20,23 +20,26 @@ public class ViewControllerFactory
       Stage chatStage)
   {
     this.viewModelFactory = viewModelFactory;
-    this.chatStage = chatStage;
   }
 
-  public ChatViewController getChatView() throws IOException  {
-    if (chatViewController == null)  {
-      fxmlLoader = new FXMLLoader(getClass().getResource("../FormattingChat/ClientSide/Chat.fxml"));
-      fxmlLoader.setControllerFactory(controllerClass -> new ChatViewController(viewModelFactory.getChatViewModel(), this));
+  public ChatViewController getChatView() throws IOException
+  {
+    if (chatViewController == null)
+    {
+      fxmlLoader = new FXMLLoader(getClass().getResource("/FormattingChat/ClientSide/Chat.fxml"));
+      fxmlLoader.setControllerFactory(controllerClass -> new ChatViewController(
+          viewModelFactory.getChatViewModel(), this));
 
+      stage = new Stage();
       Scene mainViewScene = new Scene(fxmlLoader.load());
-      Stage chatStage = new Stage();
-      chatStage.setTitle("GoHappyChat");
-      chatStage.setScene(mainViewScene);
-      chatStage.show();
+      stage.setTitle("GoHappyChat");
+      stage.setScene(mainViewScene);
+      stage.show();
       chatViewController = fxmlLoader.getController();
     }
     return chatViewController;
   }
 }
+
 
 
