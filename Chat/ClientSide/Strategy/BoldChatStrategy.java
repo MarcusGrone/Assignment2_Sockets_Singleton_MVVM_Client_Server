@@ -1,8 +1,8 @@
-package FormattingChat.ClientSide.Strategy;
+package Chat.ClientSide.Strategy;
 
 public class BoldChatStrategy implements ChatStrategy
 {
   public String formatMessage(String message) {
-    return "<b>" + message + "</b>";
+    return "Bold: " + message;
   }
 }

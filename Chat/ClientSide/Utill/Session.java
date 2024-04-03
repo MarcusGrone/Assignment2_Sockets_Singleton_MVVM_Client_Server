@@ -1,4 +1,4 @@
-package FormattingChat.ClientSide.Utill;
+package Chat.ClientSide.Utill;
 
 public class Session {
    private static Session instance;

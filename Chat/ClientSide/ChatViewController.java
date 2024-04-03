@@ -1,6 +1,6 @@
-package FormattingChat.ClientSide;
+package Chat.ClientSide;
 
-import FormattingChat.ClientSide.Utill.ViewControllerFactory;
+import Chat.ClientSide.Utill.ViewControllerFactory;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -53,12 +53,12 @@ public class ChatViewController
 
   public void onNormalChatButtonPressed()
   {
-    chatViewModel.messageToBold();
+    chatViewModel.messageToNormal();
   }
 
   public void onBoldChatButtonPressed()
   {
-    chatViewModel.messageToNormal();
+    chatViewModel.messageToBold();
   }
 
   public void onItalicButtonPressed()

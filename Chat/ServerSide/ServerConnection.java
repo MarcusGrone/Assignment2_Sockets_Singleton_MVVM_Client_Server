@@ -1,6 +1,6 @@
-package FormattingChat.ServerSide;
+package Chat.ServerSide;
 
-import FormattingChat.ClientSide.Message;
+import Chat.ClientSide.Message;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

@@ -1,6 +1,6 @@
-package FormattingChat.ClientSide.Utill;
+package Chat.ClientSide.Utill;
 
-import FormattingChat.ClientSide.ChatViewModel;
+import Chat.ClientSide.ChatViewModel;
 
 public class ViewModelFactory
 {

@@ -1,4 +1,4 @@
-package FormattingChat.ClientSide.Utill;
+package Chat.ClientSide.Utill;
 
 import static javafx.application.Application.launch;
 

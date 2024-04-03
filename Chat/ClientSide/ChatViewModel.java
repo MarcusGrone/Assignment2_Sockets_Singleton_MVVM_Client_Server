@@ -1,40 +1,42 @@
-package FormattingChat.ClientSide;
+package Chat.ClientSide;
 
-import FormattingChat.ClientSide.Utill.Session;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
+import Chat.ClientSide.Utill.Session;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 
 public class ChatViewModel
 {
   private Model model;
- // private final BooleanProperty isConnected = new SimpleBooleanProperty(false);
+  // private final BooleanProperty isConnected = new SimpleBooleanProperty(false);
   private Session session = Session.getInstance();
   private StringProperty message = new SimpleStringProperty();
 
-  public ChatViewModel(Model model)
-  {
+  public ChatViewModel(Model model) {
     this.model = model;
-    //model.addPropertyChangeListener("StrategyChange", this::Update);
     model.addPropertyChangeListener("message", event -> {
       Message message = (Message) event.getNewValue();
-      messageProperty().set(message.getName() + ": " + message.getMessage());
+      messageProperty().set(message.getName() + message.getMessage());
     });
+
   }
 
-  public StringProperty messageProperty() {
+
+  public StringProperty messageProperty()
+  {
     return message;
   }
 
-  public void sendMessage(String name, String message) {
-    try {
+  public void sendMessage(String name, String message)
+  {
+    try
+    {
       System.out.println("Message recieved by ViewModel");
       model.sendMessage(name, message);
-    } catch (IOException e) {
+    }
+    catch (IOException e)
+    {
       e.printStackTrace();
     }
   }
@@ -65,7 +67,5 @@ public class ChatViewModel
   {
     model.strategyBold();
   }
-
-
 
 }

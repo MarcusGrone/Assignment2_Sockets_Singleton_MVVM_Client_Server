@@ -1,4 +1,4 @@
-package FormattingChat.ClientSide;
+package Chat.ClientSide;
 
 import java.beans.PropertyChangeListener;
 

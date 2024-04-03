@@ -1,8 +1,8 @@
-package FormattingChat.ClientSide;
+package Chat.ClientSide;
 
-import FormattingChat.ClientSide.Strategy.BoldChatStrategy;
-import FormattingChat.ClientSide.Strategy.ItalicChatStrategy;
-import FormattingChat.ClientSide.Strategy.NormalChatStrategy;
+import Chat.ClientSide.Strategy.BoldChatStrategy;
+import Chat.ClientSide.Strategy.ItalicChatStrategy;
+import Chat.ClientSide.Strategy.NormalChatStrategy;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -45,8 +45,8 @@ public class Model implements Subject
 
   public void sendMessage(String name, String messageContent) throws IOException {
     Message messageToSend = new Message(name, messageContent);
-    clientConnection.send(messageToSend);
-    System.out.println("model recieved " + messageToSend);
+    messageToSend.setChatStrategy(message.getChatStrategy());
+    clientConnection.send(messageToSend.formatMessage());
   }
 
   @Override

@@ -1,10 +1,10 @@
-package FormattingChat.ClientSide.Strategy;
+package Chat.ClientSide.Strategy;
 
 public class ItalicChatStrategy implements ChatStrategy
 {
   @Override public String formatMessage(String message)
   {
-    return "<i>" + message + "</i>";
+    return "italic: " + message;
   }
 
 }

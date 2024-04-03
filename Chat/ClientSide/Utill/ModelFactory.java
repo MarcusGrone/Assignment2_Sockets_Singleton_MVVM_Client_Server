@@ -1,5 +1,5 @@
-package FormattingChat.ClientSide.Utill;
-import FormattingChat.ClientSide.Model;
+package Chat.ClientSide.Utill;
+import Chat.ClientSide.Model;
 public class ModelFactory
 {
   private Model model;
