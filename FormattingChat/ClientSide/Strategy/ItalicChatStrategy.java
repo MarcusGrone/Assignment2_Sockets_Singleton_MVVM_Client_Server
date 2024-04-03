@@ -1,4 +1,4 @@
-package FormattingChat.ClientSide.FormattingChatStrategy;
+package FormattingChat.ClientSide.Strategy;
 
 public class ItalicChatStrategy implements ChatStrategy
 {

@@ -12,8 +12,8 @@ import java.io.IOException;
 public class ChatViewModel
 {
   private Model model;
-  private final BooleanProperty isConnected = new SimpleBooleanProperty(false);
-  private final Session session = Session.getInstance();
+ // private final BooleanProperty isConnected = new SimpleBooleanProperty(false);
+  private Session session = Session.getInstance();
   private StringProperty message = new SimpleStringProperty();
 
   public ChatViewModel(Model model)
@@ -26,21 +26,16 @@ public class ChatViewModel
     });
   }
 
-  public StringProperty messageProperty()
-  {
+  public StringProperty messageProperty() {
     return message;
   }
 
-  public void sendMessage(String name, String message)
-  {
-    try
-    {
-      System.out.println("From ViewModel: message recieved.");
+  public void sendMessage(String name, String message) {
+    try {
+      System.out.println("Message recieved by ViewModel");
       model.sendMessage(name, message);
-    }
-    catch (IOException e)
-    {
-      throw new RuntimeException(e);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
@@ -71,9 +66,6 @@ public class ChatViewModel
     model.strategyBold();
   }
 
-  private void Update(PropertyChangeEvent propertyChangeEvent)
-  {
 
-  }
 
 }

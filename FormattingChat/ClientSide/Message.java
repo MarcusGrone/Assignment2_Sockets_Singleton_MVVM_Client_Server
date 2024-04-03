@@ -1,6 +1,6 @@
 package FormattingChat.ClientSide;
 
-import FormattingChat.ClientSide.FormattingChatStrategy.ChatStrategy;
+import FormattingChat.ClientSide.Strategy.ChatStrategy;
 
 import java.io.Serializable;
 

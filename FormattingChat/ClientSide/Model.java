@@ -1,8 +1,8 @@
 package FormattingChat.ClientSide;
 
-import FormattingChat.ClientSide.FormattingChatStrategy.BoldChatStrategy;
-import FormattingChat.ClientSide.FormattingChatStrategy.ItalicChatStrategy;
-import FormattingChat.ClientSide.FormattingChatStrategy.NormalChatStrategy;
+import FormattingChat.ClientSide.Strategy.BoldChatStrategy;
+import FormattingChat.ClientSide.Strategy.ItalicChatStrategy;
+import FormattingChat.ClientSide.Strategy.NormalChatStrategy;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -20,6 +20,7 @@ public class Model implements Subject
   public Model()
   {
     support = new PropertyChangeSupport(true);
+    message = new Message("", "");
   }
 
   public boolean connectToServer(String host, int port, String clientName)
@@ -42,15 +43,14 @@ public class Model implements Subject
     }
   }
 
-  public void sendMessage(String name, String messageContent) throws IOException
-  {
+  public void sendMessage(String name, String messageContent) throws IOException {
     Message messageToSend = new Message(name, messageContent);
     clientConnection.send(messageToSend);
+    System.out.println("model recieved " + messageToSend);
   }
 
-  @Override public void addPropertyChangeListener(String name,
-      PropertyChangeListener listener)
-  {
+  @Override
+  public void addPropertyChangeListener(String name, PropertyChangeListener listener) {
     support.addPropertyChangeListener(name, listener);
   }
 

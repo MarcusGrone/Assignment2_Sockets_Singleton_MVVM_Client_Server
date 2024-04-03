@@ -25,12 +25,22 @@ public class ServerConnection implements Runnable
 
   @Override public void run()
   {
-
+    try
+    {
+      Message message = (Message) inFromClient.readObject();
+      System.out.println("Message in ServerConnection:" + message);
+      connectionPool.broadCast(message, this);
+    }
+    catch (IOException | ClassNotFoundException e)
+    {
+      throw new RuntimeException(e);
+    }
     while (true)
     {
       try
       {
         Message message = (Message) inFromClient.readObject();
+        System.out.println("Message in ServerConnection:" + message);
         connectionPool.broadCast(message, this);
       }
       catch (IOException | ClassNotFoundException e)
@@ -38,12 +48,14 @@ public class ServerConnection implements Runnable
         throw new RuntimeException(e);
       }
     }
-
   }
 
-  public void send(Message message) throws IOException
-  {
-    outTolient.writeObject(message);
-  }
+
+
+public void send(Message message) throws IOException
+{
+  outTolient.writeObject(message);
+
+}
 
 }

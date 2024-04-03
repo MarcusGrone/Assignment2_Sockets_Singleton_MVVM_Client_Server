@@ -4,5 +4,5 @@ import java.beans.PropertyChangeListener;
 
 public interface Subject
 {
-  void addPropertyChangeListener (String eventName, PropertyChangeListener listener);
+  public void addPropertyChangeListener(String name, PropertyChangeListener listener);
 }

@@ -24,12 +24,10 @@ public class ChatViewController
     this.viewControllerFactory = viewControllerFactory;
   }
 
-  public void initialize()
-  {
-    chatViewModel.messageProperty()
-        .addListener((obs, oldMessage, newMessage) -> {
-          onMessageRecieved(newMessage);
-        });
+  public void initialize() {
+    chatViewModel.messageProperty().addListener((obs, oldMessage, newMessage) -> {
+      onMessageRecieved(newMessage);
+    });
   }
 
   public void onMessageRecieved(String message)
