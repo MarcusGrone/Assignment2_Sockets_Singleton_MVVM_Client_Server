@@ -1,6 +1,6 @@
 package Chat.ClientSide;
 
-import Chat.ClientSide.Utill.ViewControllerFactory;
+import Chat.ClientSide.Utill.ViewContFactory;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -12,16 +12,16 @@ public class ChatViewController
 {
 
   private ChatViewModel chatViewModel;
-  private ViewControllerFactory viewControllerFactory;
+  private ViewContFactory viewContFactory;
   @FXML public TextField nameField;
   @FXML public TextField messageInputTextField;
   @FXML public TextArea textArea;
 
   public ChatViewController(ChatViewModel chatViewModel,
-      ViewControllerFactory viewControllerFactory)
+      ViewContFactory viewContFactory)
   {
     this.chatViewModel = chatViewModel;
-    this.viewControllerFactory = viewControllerFactory;
+    this.viewContFactory = viewContFactory;
   }
 
   public void initialize() {

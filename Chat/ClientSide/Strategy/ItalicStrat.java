@@ -1,9 +1,10 @@
 package Chat.ClientSide.Strategy;
 
-public class NormalChatStrategy implements ChatStrategy
+public class ItalicStrat implements ChatStrategy
 {
   @Override public String formatMessage(String message)
   {
-    return "Normal: " + message;
+    return "italic: " + message;
   }
+
 }

@@ -1,8 +1,8 @@
 package Chat.ClientSide;
 
-import Chat.ClientSide.Strategy.BoldChatStrategy;
-import Chat.ClientSide.Strategy.ItalicChatStrategy;
-import Chat.ClientSide.Strategy.NormalChatStrategy;
+import Chat.ClientSide.Strategy.BoldStrat;
+import Chat.ClientSide.Strategy.ItalicStrat;
+import Chat.ClientSide.Strategy.NormalStrat;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -56,22 +56,22 @@ public class Model implements Subject
 
   public void strategyBold()
   {
-    message.setChatStrategy(new BoldChatStrategy());
-    support.firePropertyChange("strategyUpdated", null, new BoldChatStrategy());
+    message.setChatStrategy(new BoldStrat());
+    support.firePropertyChange("strategyUpdated", null, new BoldStrat());
   }
 
   public void strategyItalic()
   {
-    message.setChatStrategy(new ItalicChatStrategy());
+    message.setChatStrategy(new ItalicStrat());
     support.firePropertyChange("strategyUpdated", null,
-        new ItalicChatStrategy());
+        new ItalicStrat());
   }
 
   public void strategyNormal()
   {
-    message.setChatStrategy(new NormalChatStrategy());
+    message.setChatStrategy(new NormalStrat());
     support.firePropertyChange("strategyUpdated", null,
-        new NormalChatStrategy());
+        new NormalStrat());
   }
 
 }

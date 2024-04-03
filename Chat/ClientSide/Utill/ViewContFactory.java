@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ViewControllerFactory
+public class ViewContFactory
 {
   private ViewModelFactory viewModelFactory;
   private ChatViewController chatViewController;
@@ -16,7 +16,7 @@ public class ViewControllerFactory
 
   private FXMLLoader fxmlLoader;
 
-  public ViewControllerFactory(ViewModelFactory viewModelFactory,
+  public ViewContFactory(ViewModelFactory viewModelFactory,
       Stage chatStage)
   {
     this.viewModelFactory = viewModelFactory;

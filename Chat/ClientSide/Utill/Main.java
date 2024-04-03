@@ -14,8 +14,8 @@ public class Main extends Application {
   public void start(Stage primaryStage) throws Exception {
     ModelFactory modelFactory = new ModelFactory();
     ViewModelFactory viewModelFactory = new ViewModelFactory(modelFactory);
-    ViewControllerFactory viewControllerFactory = new ViewControllerFactory(viewModelFactory, primaryStage);
+    ViewContFactory viewContFactory = new ViewContFactory(viewModelFactory, primaryStage);
 
-    viewControllerFactory.getChatView();
+    viewContFactory.getChatView();
   }
 }
